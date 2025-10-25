@@ -27,10 +27,10 @@ const meta = {
       }
     },
     size: {
-      options: ["default", "sm", "lg", "icon"],
+      options: ["default", "sm", "lg", "icon", "icon-sm", "icon-lg"],
       control: { type: "inline-radio" },
       table: {
-        type: { summary: "enum (string)", detail: "default | sm | lg | icon" },
+        type: { summary: "enum (string)", detail: "default | sm | lg | icon | icon-sm | icon-lg" },
       },
       defaultValue: "default",
     },
@@ -71,17 +71,23 @@ export const Secondary: Story = {
   },
 }
 
-export const Custom: Story = {
-  name: "Custom",
+export const Destructive: Story = {
   args: {
-    children: "Custom",
+    children: "Delete",
+    variant: "destructive",
+  },
+}
+
+export const Outline: Story = {
+  args: {
+    children: "Outline",
     variant: "outline",
   },
-  render: (props) => (
-    <Button {...props}>
-      <span className="mr-1">🔥</span>
-      Customized
-    </Button>
+}
 
-  )
+export const Ghost: Story = {
+  args: {
+    children: "Ghost",
+    variant: "ghost",
+  },
 }
