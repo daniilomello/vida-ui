@@ -2,15 +2,26 @@
   "name": "vida-ui",
   "private": false,
   "files": ["dist", "README.md"],
-  "version": "0.0.2",
+  "version": "0.0.4",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./style.css": "./dist/index.css"
+  },
   "scripts": {
     "preview": "vite preview",
     "dev": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build": "tsup"
+    "build:js": "tsup",
+    "build:css": "vite build --config vite.config.css.ts && rm -f dist/styles.mjs",
+    "build": "npm run build:js && npm run build:css",
+    "build:watch": "tsup --watch"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",

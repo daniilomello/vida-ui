@@ -9,9 +9,5 @@ export default defineConfig({
   format: ['cjs', 'esm'],
   external: ['react', 'react-dom'],
   dts: true,
-  tsconfig: 'tsconfig.build.json',
-  esbuildOptions(options) {
-    options.conditions = ['style'];
-    return options;
-  },
+  tsconfig: 'tsconfig.build.json'
 });
